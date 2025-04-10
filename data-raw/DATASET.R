@@ -1,3 +1,4 @@
+library(dplyr)
 ## code to prepare `DATASET` dataset goes here
 kaggle <- read.csv("data-raw/cbb.csv")
 
@@ -58,9 +59,18 @@ season_stats |>
 
 season_stats |>
   left_join(cbb, by = c("team", "year")) |>
-  select(-c(def_ft_pct, avg_marg, conf, ft_pct.x)) |>
+  dplyr::select(!c(def_ft_pct, avg_marg, conf, ft_pct.x)) |>
   left_join(kaggle, by = c("team" = "TEAM", "year" = "YEAR" ) )|>
-  tidyr::replace_na(list(0)) -> DATASET
+  tidyr::replace_na(list(0)) |>
+  mutate(
+    POSTSEASON = ifelse(is.na(POSTSEASON),"0" ,POSTSEASON),
+    SEED = ifelse(is.na(SEED), "100", SEED)
+  ) |>
+  dplyr::select( !c(G, W, "ADJDE", "BARTHAG", "EFG_O",
+             "EFG_D", "TOR", "TORD", "ORB","DRB",
+       "FTR", "FTRD","X2P_O" ,"X2P_D", "X3P_O", "X3P_D", "ADJ_T", "WAB" )
+  ) -> DATASET
+
 
 
 

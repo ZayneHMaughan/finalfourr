@@ -68,7 +68,8 @@ season_stats |>
   ) |>
   dplyr::select( !c(G, W, "ADJDE", "BARTHAG", "EFG_O",
              "EFG_D", "TOR", "TORD", "ORB","DRB",
-       "FTR", "FTRD","X2P_O" ,"X2P_D", "X3P_O", "X3P_D", "ADJ_T", "WAB", "ADJOE" )
+       "FTR", "FTRD","X2P_O" ,"X2P_D", "X3P_O", "X3P_D", "ADJ_T", "WAB", "ADJOE",
+       block_rate, block_rate_allowed)
   ) -> DATASET
 
 

@@ -74,8 +74,4 @@ season_stats |>
 
 
 
-
-sapply(big_data, function(x) sum(is.na(x)))
-#combined_df <- rbind(cbb, kaggle)
-
 usethis::use_data(DATASET, overwrite = TRUE)

@@ -7,14 +7,15 @@
 plot_team_comparison(comparison_df)
 }
 \arguments{
-\item{comparison_df}{A data frame returned by \code{compare_teams()}, with two rows and the metrics as columns.}
+\item{comparison_df}{A data frame returned by \code{compare_teams()},
+with two rows and the metrics as columns.}
 }
 \value{
 A \code{ggplot} object showing the side-by-side comparison.
 }
 \description{
-This function takes the result of \code{compare_teams()} and creates a bar plot comparing
-two teams on selected offensive and defensive metrics.
+This function takes the result of \code{compare_teams()} and creates a bar
+plot comparing #' two teams on selected offensive and defensive metrics.
 }
 \examples{
 comparison <- compare_teams(2021, "Bryant", "Lamar")

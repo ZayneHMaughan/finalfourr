@@ -13,15 +13,17 @@ compare_teams(year, team1, team2, data = DATASET)
 
 \item{team2}{The name of the second team (as a character string).}
 
-\item{data}{A data frame containing the dataset (must include relevant columns).
-Defaults to \code{finalfourr}.}
+\item{data}{A data frame containing the dataset
+(must include relevant columns). Defaults to \code{DATASET}.}
 }
 \value{
-A data frame comparing the two teams across selected offensive and defensive metrics.
+A data frame comparing the two teams across selected offensive
+and defensive metrics.
 }
 \description{
-This function compares two college basketball teams from a given year on their
-free throw rate, 2-point percentage, 3-point percentage, and their defensive equivalents.
+This function compares two college basketball teams from a
+given year on their free throw rate, 2-point percentage,
+3-point percentage, and their defensive equivalents.
 }
 \examples{
 compare_teams(2019, "Duke", "North Carolina")

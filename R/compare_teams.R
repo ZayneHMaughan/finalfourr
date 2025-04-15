@@ -1,15 +1,17 @@
 #' Compare Two Teams on Key Shooting and Defensive Metrics
 #'
-#' This function compares two college basketball teams from a given year on their
-#' free throw rate, 2-point percentage, 3-point percentage, and their defensive equivalents.
+#' This function compares two college basketball teams from a
+#' given year on their free throw rate, 2-point percentage,
+#' 3-point percentage, and their defensive equivalents.
 #'
 #' @param year An integer year (e.g., 2018).
 #' @param team1 The name of the first team (as a character string).
 #' @param team2 The name of the second team (as a character string).
-#' @param data A data frame containing the dataset (must include relevant columns).
-#'             Defaults to \code{finalfourr}.
+#' @param data A data frame containing the dataset
+#'             (must include relevant columns). Defaults to \code{DATASET}.
 #'
-#' @return A data frame comparing the two teams across selected offensive and defensive metrics.
+#' @return A data frame comparing the two teams across selected offensive
+#'             and defensive metrics.
 #' @export
 #'
 #' @examples

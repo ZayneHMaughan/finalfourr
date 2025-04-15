@@ -12,7 +12,8 @@ validate_inputs(data, year)
 \item{year}{The year to validate.}
 }
 \value{
-Stops with an error message if input is invalid; otherwise, returns TRUE invisibly.
+Stops with an error message if input is invalid;
+otherwise, returns TRUE invisibly.
 }
 \description{
 Validate Inputs for get_teams_by_conf

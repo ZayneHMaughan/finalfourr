@@ -7,16 +7,20 @@
 get_teams_by_conf(year, data = DATASET)
 }
 \arguments{
-\item{year}{An integer year for which the user wants to retrieve conference-team mappings.}
+\item{year}{An integer year for which the user wants to retrieve
+conference-team mappings.}
 
-\item{data}{A data frame containing the dataset (must include 'year', 'team', and 'CONF' columns).
-Defaults to \code{DATSET}, which must exist in the global environment.}
+\item{data}{A data frame containing the dataset (must include 'year',
+'team', and 'CONF' columns). Defaults to \code{DATSET}}
 }
 \value{
-A named list where each element corresponds to a conference and contains the vector of teams in that conference for the given year.
+A named list where each element corresponds to a conference
+and contains the vector of teams in that conference for the
+given year.
 }
 \description{
-This function returns a list of conferences and the teams that were in each conference for a specified year.
+This function returns a list of conferences and the teams that were
+in each conference for a specified year.
 }
 \examples{
 get_teams_by_conf(2018)

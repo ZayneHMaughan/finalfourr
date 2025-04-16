@@ -2,5 +2,6 @@
 
 export(compare_teams)
 export(get_bracket_teams)
+export(get_team_record)
 export(get_teams_by_conf)
 export(plot_team_comparison)

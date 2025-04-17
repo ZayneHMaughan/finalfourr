@@ -8,7 +8,7 @@
 #' @param team1 The name of the first team (as a character string).
 #' @param team2 The name of the second team (as a character string).
 #' @param data A data frame containing the dataset
-#'             (must include relevant columns). Defaults to \code{DATASET}.
+#'             (must include relevant columns). Defaults to \code{cbb_data}.
 #'
 #' @return A data frame comparing the two teams across selected offensive
 #'             and defensive metrics.
@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' compare_teams(2019, "Duke", "North Carolina")
-compare_teams <- function(year, team1, team2, data = DATASET) {
+compare_teams <- function(year, team1, team2, data = cbb_data) {
   validate_compare_inputs(year, team1, team2, data)
 
   # Filter data for the given year and the two teams

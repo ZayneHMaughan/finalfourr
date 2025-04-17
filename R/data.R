@@ -3,7 +3,7 @@
 #' A combination of the kaggle college basketball dataset and CBB data from
 #'  andreweatherman contains information from 2013 to 2024 college basketball
 #'
-#' @format ## 'DATASET'
+#' @format ## 'cbb_data'
 #' A data frame with 4238 rows and 84 columns:
 #' \describe{
 #'    \item{team} {Team name}
@@ -106,4 +106,4 @@
 #'
 #' @source "https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset?select=cbb.csv"
 #' @source "https://cbbdata.aweatherman.com/."
-"DATASET"
+"cbb_data"

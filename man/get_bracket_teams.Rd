@@ -4,12 +4,12 @@
 \alias{get_bracket_teams}
 \title{Get NCAA Tournament Teams for a Given Year}
 \usage{
-get_bracket_teams(yr, data = DATASET)
+get_bracket_teams(yr, data = cbb_data)
 }
 \arguments{
 \item{yr}{An integer year to query.}
 
-\item{data}{A data frame containing the dataset. Defaults to \code{DATASET}.}
+\item{data}{A data frame containing the dataset. Defaults to \code{cbb_data}.}
 }
 \value{
 A sorted character vector of team names that made the NCAA bracket

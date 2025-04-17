@@ -15,7 +15,7 @@
 
 utils::globalVariables(c("team", "year"))
 filter_team <- function(team_name, season = NULL) {
-  filtered <- DATASET |>
+  filtered <- cbb_data |>
     dplyr::filter(team == team_name)
 
   if (!is.null(season)) {

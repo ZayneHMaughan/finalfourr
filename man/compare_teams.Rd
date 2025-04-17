@@ -4,7 +4,7 @@
 \alias{compare_teams}
 \title{Compare Two Teams on Key Shooting and Defensive Metrics}
 \usage{
-compare_teams(year, team1, team2, data = DATASET)
+compare_teams(year, team1, team2, data = cbb_data)
 }
 \arguments{
 \item{year}{An integer year (e.g., 2018).}
@@ -14,7 +14,7 @@ compare_teams(year, team1, team2, data = DATASET)
 \item{team2}{The name of the second team (as a character string).}
 
 \item{data}{A data frame containing the dataset
-(must include relevant columns). Defaults to \code{DATASET}.}
+(must include relevant columns). Defaults to \code{cbb_data}.}
 }
 \value{
 A data frame comparing the two teams across selected offensive

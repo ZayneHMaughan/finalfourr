@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' get_teams_by_conf(2018)
-get_teams_by_conf <- function(year, data = DATASET) {
+get_teams_by_conf <- function(year, data = cbb_data) {
   validate_inputs(data, year)
 
   # Proper subsetting using data$year

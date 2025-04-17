@@ -4,7 +4,7 @@
 \alias{get_teams_by_conf}
 \title{Get Teams by Conference for a Given Year}
 \usage{
-get_teams_by_conf(year, data = DATASET)
+get_teams_by_conf(year, data = cbb_data)
 }
 \arguments{
 \item{year}{An integer year for which the user wants to retrieve

@@ -15,3 +15,7 @@ get_team_record(team_name, season_range = NULL)
 Input a team name and range of years to get their totals wins and loses by
 season
 }
+\examples{
+get_team_record("Utah St.", 2014:2020)
+
+}

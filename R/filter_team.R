@@ -1,4 +1,15 @@
-# A helper function to pull all of the stats for any specific team
+#' Pull all of the stats for any specific team
+#'
+#' Get all of the information in the dataset for any team in any season
+#'
+#' @param team_name Team name
+#' @param season the year you want the information default is all seasons
+#'
+#' @examples
+#' filter_team("Utah St.")
+#' filter_team("N.C. State", 2016)
+#'
+#' @export
 
 filter_team <- function(team_name, season = NULL) {
   filtered <- DATASET |>

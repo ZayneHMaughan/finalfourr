@@ -3,9 +3,6 @@
 \name{filter_team}
 \alias{filter_team}
 \title{Pull all of the stats for any specific team}
-\usage{
-filter_team(team_name, season = NULL)
-}
 \arguments{
 \item{team_name}{Team name}
 

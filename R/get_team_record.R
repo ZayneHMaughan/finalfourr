@@ -6,11 +6,14 @@
 #' @param team_name String. The school's name
 #' @param season_range Integer vector. A range of years (e.g., 2013:2024)
 #'
+#' @name get_team_record
+#'
 #' @examples
 #' get_team_record("Utah St.", 2014:2020)
 #'
 #' @export
 
+utils::globalVariables(c("team", "year", "wins", "losses"))
 get_team_record <- function(team_name, season_range = NULL) {
   record <- data.frame()
   if (is.null(season_range)) {

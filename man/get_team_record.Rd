@@ -3,9 +3,6 @@
 \name{get_team_record}
 \alias{get_team_record}
 \title{Extract a teams wins and losses in a given season}
-\usage{
-get_team_record(team_name, season_range = NULL)
-}
 \arguments{
 \item{team_name}{String. The school's name}
 

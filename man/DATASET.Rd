@@ -50,28 +50,35 @@ A data frame with 4238 rows and 84 columns:
 \item{opp_pts} {Total points scored by the opponent}
 \item{pts_scored} {Team's total points scored over the season}
 \item{pts_allowed} {Total points allowed over the season}
-\item{adj_o.x} {Adjusted offensive efficiency (points per 100 possessions, accounting for strength of schedule)}
-\item{adj_d.x} {Adjusted defensive efficiency (points allowed per 100 possessions, adjusted for opponent strength)}
+\item{adj_o.x} {Adjusted offensive efficiency (points per 100 possessions,
+accounting for strength of schedule)}
+\item{adj_d.x} {Adjusted defensive efficiency (points allowed per 100
+possessions, adjusted for opponent strength)}
 \item{off_ppp} {Offensive points per possession}
-\item{off_efg} {Offensive effective field goal percentage (accounts for the extra value of 3-point shots)}
+\item{off_efg} {Offensive effective field goal percentage (accounts for
+the extra value of 3-point shots)}
 \item{off_to} {Offensive turnover rate (turnovers per possession)}
-\item{off_or} {Offensive rebound rate (OREB divided by total available offensive rebounds)}
+\item{off_or} {Offensive rebound rate (OREB divided by total available
+offensive rebounds)}
 \item{off_ftr} {Offensive free throw rate (FTA divided by FGA)}
 \item{def_ppp} {Defensive points allowed per possession}
 \item{def_efg.x} {Opponent's effective field goal percentage}
 \item{def_to} {Defensive turnover rate}
 \item{def_or} {Opponent's offensive rebound rate}
 \item{def_ftr.x} {Opponent's free throw rate}
-\item{game_score} {A metric summarizing team performance for a single game}
+\item{game_score} {A metric summarizing team performance for a single
+game}
 \item{tempo} {Average number of possessions per 40 minutes}
 \item{games.x} {Number of games played}
 \item{games.y} {Number of games played}
 \item{wins} {Total wins for the season}
 \item{losses} {Total losses for the season}
-\item{adj_t} {Adjusted tempo (possessions per game adjusted for opponents)}
+\item{adj_t} {Adjusted tempo (possessions per game adjusted for
+opponents)}
 \item{adj_o.y} {Alternative source for adjusted offensive efficiency}
 \item{adj_d.y} {Alternative source for adjusted defensive efficiency}
-\item{barthag} {Power ranking metric estimating team strength and win probability against average opponent}
+\item{barthag} {Power ranking metric estimating team strength and win
+probability against average opponent}
 \item{efg} {Team's effective field goal percentage}
 \item{def_efg.y} {Opponent's effective field goal percentage}
 \item{ftr} {Team's free throw rate}
@@ -79,17 +86,22 @@ A data frame with 4238 rows and 84 columns:
 \item{oreb_rate} {Offensive rebounding percentage}
 \item{dreb_rate} {Defensive rebounding percentage}
 \item{tov_rate} {Turnover rate per offensive possession}
-\item{def_tov_rate} {Opponent turnover rate (forced turnovers per possession)}
+\item{def_tov_rate} {Opponent turnover rate (forced turnovers per
+possession)}
 \item{two_pt_pct} {Team's 2-point field goal percentage}
 \item{three_pt_pct} {Team's 3-point field goal percentage}
 \item{ft_pct.y} {Free throw percentage}
 \item{def_two_pt_pct} {Opponent's 2-point field goal percentage}
 \item{def_three_pt_pct} {Opponent's 3-point field goal percentage}
-\item{three_fg_rate} {Proportion of field goal attempts that are three-pointers}
-\item{def_three_fg_rate} {Proportion of opponent field goal attempts that are threes}
+\item{three_fg_rate} {Proportion of field goal attempts that are
+three-pointers}
+\item{def_three_fg_rate} {Proportion of opponent field goal attempts that
+are threes}
 \item{assist_rate} {Percentage of made field goals that were assisted}
-\item{def_assist_rate} {Percentage of opponent's made field goals that were assisted}
-\item{wab} {Wins Above Bubble — how many more wins a team has compared to a typical bubble team}
+\item{def_assist_rate} {Percentage of opponent's made field goals that
+were assisted}
+\item{wab} {Wins Above Bubble — how many more wins a team has compared to
+a typical bubble team}
 \item{CONF} {The conference the team plays in (e.g., ACC, Big Ten)}
 \item{POSTSEASON} {How far the team advanced in the postseason}
 \item{SEED} {NCAA tournament seed assigned to the team}

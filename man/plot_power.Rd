@@ -3,9 +3,6 @@
 \name{plot_power}
 \alias{plot_power}
 \title{See teams power rating over the years}
-\usage{
-plot_power(team)
-}
 \arguments{
 \item{team}{team name}
 }

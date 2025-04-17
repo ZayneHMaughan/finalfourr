@@ -5,20 +5,22 @@
 #' @param team_name Team name
 #' @param season the year you want the information default is all seasons
 #'
+#' @name filter_team
+#'
 #' @examples
 #' filter_team("Utah St.")
 #' filter_team("N.C. State", 2016)
 #'
 #' @export
 
+utils::globalVariables(c("team", "year"))
 filter_team <- function(team_name, season = NULL) {
   filtered <- DATASET |>
-    dplyr::filter(.data$team == team_name)
+    dplyr::filter(team == team_name)
 
   if (!is.null(season)) {
-    filtered <- filtered |> dplyr::filter(.data$year == season)
+    filtered <- filtered |> dplyr::filter(year == season)
   }
 
   filtered
 }
-

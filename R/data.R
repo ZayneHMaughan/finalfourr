@@ -1,7 +1,7 @@
 #' College basketball Season Statistics data
 #'
-#' A combination of the kaggle college basketball dataset and CBBData with
-#'    information from 2013 to 2024 college basketball
+#' A combination of the kaggle college basketball dataset and CBB data from
+#'  andreweatherman contains information from 2013 to 2024 college basketball
 #'
 #' @format ## 'DATASET'
 #' A data frame with 4238 rows and 84 columns:
@@ -92,16 +92,6 @@
 #'    \item{SEED} {NCAA tournament seed assigned to the team}
 #' }
 #'
-#' @Manual{,title = {cbbdata: API for College Basketball Data},
-#' author = {Andrew Weatherman},
-#' year = {2024},
-#' note = {R package version 0.3.0.9000},
-#' url = {https://cbbdata.aweatherman.com/},
-#' }
-#'
 #' @source "https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset?select=cbb.csv"
-#'
-#' "DATASET"
-#'
-#'
-#'
+#' @source "https://cbbdata.aweatherman.com/."
+"DATASET"

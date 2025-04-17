@@ -8,8 +8,10 @@
 #' @return Stops with an error message if validation fails.
 validate_compare_inputs <- function(year, team1, team2, data) {
   if (!is.data.frame(data)) stop("Data must be a data frame.")
-  required_cols <- c("year", "team", "ftr", "two_pt_pct", "three_pt_pct",
-                     "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct")
+  required_cols <- c(
+    "year", "team", "ftr", "two_pt_pct", "three_pt_pct",
+    "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct"
+  )
   missing_cols <- setdiff(required_cols, names(data))
   if (length(missing_cols) > 0) {
     stop("Missing required columns: ", paste(missing_cols, collapse = ", "))

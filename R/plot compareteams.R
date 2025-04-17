@@ -24,8 +24,10 @@ plot_team_comparison <- function(comparison_df) {
   }
 
   # Reshape data to long format for ggplot
-  long_df <- reshape2::melt(comparison_df, id.vars = "team",
-                            variable.name = "Metric", value.name = "Value")
+  long_df <- reshape2::melt(comparison_df,
+    id.vars = "team",
+    variable.name = "Metric", value.name = "Value"
+  )
 
   # Plot
   ggplot2::ggplot(long_df, ggplot2::aes(x = Metric, y = Value, fill = team)) +

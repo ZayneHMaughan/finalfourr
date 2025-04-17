@@ -12,5 +12,6 @@ get_team_record(team_name, season_range = NULL)
 \item{season_range}{Integer vector. A range of years (e.g., 2013:2024)}
 }
 \description{
-Extract a teams wins and losses in a given season
+Input a team name and range of years to get their totals wins and loses by
+season
 }

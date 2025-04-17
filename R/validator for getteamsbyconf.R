@@ -13,7 +13,8 @@ validate_inputs <- function(data, year) {
   missing_cols <- setdiff(required_cols, colnames(data))
   if (length(missing_cols) > 0) {
     stop(paste("Missing required columns:", paste(missing_cols,
-                                                  collapse = ", ")))
+      collapse = ", "
+    )))
   }
   if (!is.numeric(year) || length(year) != 1 || year %% 1 != 0) {
     stop("The 'year' must be a single integer.")

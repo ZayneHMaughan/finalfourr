@@ -20,9 +20,13 @@ compare_teams <- function(year, team1, team2, data = DATASET) {
   validate_compare_inputs(year, team1, team2, data)
 
   # Filter data for the given year and the two teams
-  comparison <- data[data$year == year & data$team %in% c(team1, team2),
-                     c("team", "ftr", "two_pt_pct", "three_pt_pct",
-                       "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct")]
+  comparison <- data[
+    data$year == year & data$team %in% c(team1, team2),
+    c(
+      "team", "ftr", "two_pt_pct", "three_pt_pct",
+      "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct"
+    )
+  ]
 
   # Return comparison sorted by input order
   comparison[match(c(team1, team2), comparison$team), ]

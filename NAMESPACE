@@ -2,8 +2,11 @@
 
 export(compare_teams)
 export(filter_team)
+export(flip_a_coin)
 export(get_bracket_teams)
 export(get_team_record)
 export(get_teams_by_conf)
 export(plot_power)
 export(plot_team_comparison)
+export(search_team)
+export(simulate_matchup)

@@ -162,7 +162,7 @@ sessionInfo()
 a given season. 
 
 ```{r}
-filter_team('N.C. State', season = 2016)
+filter_team("N.C. State", season = 2016)
 ```
 
 ## Notes
@@ -180,7 +180,7 @@ showing the team's power rating from 2013 to the most recent season available
 in the dataset.
 
 ```{r}
-power_plot('Utah St.')
+power_plot("Utah St.")
 ```
 
 ---

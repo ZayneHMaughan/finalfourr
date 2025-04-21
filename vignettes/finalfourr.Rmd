@@ -14,6 +14,128 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r, message= FALSE, warning=FALSE}
 library(finalfourr)
 ```
+
+## Introduction
+
+This vignette demonstrates how to use several functions from the package to explore NCAA basketball team data, including:
+
+- Comparing two teams (`compare_teams()` and `plot_compare_teams()`)
+- Listing bracket teams for a given year (`get_bracket_teams()`)
+- Getting team lists by conference (`get_teams_by_conf()`)
+- Searching for teams by keyword (`search_team()`)
+- Simulating a matchup between two teams (`simulate_matchup()`)
+- Flipping a coin between two teams (`flip_a_coin()`)
+
+All functions assume the presence of a dataset like `cbb_data`, containing columns such as `year`, `team`, `CONF`, and `POSTSEASON`.
+
+---
+
+## Comparing Two Teams
+
+### `compare_teams()`
+
+Returns offensive and defensive metrics for two teams in a given year:
+
+- `ftr`: Free throw rate  
+- `two_pt_pct`: 2-point percentage  
+- `three_pt_pct`: 3-point percentage  
+- `def_ftr.y`: Opponent free throw rate  
+- `def_two_pt_pct`: Opponent 2-point percentage  
+- `def_three_pt_pct`: Opponent 3-point percentage
+
+```{r compare-example}
+comparison <- compare_teams(2021, "Gonzaga", "Baylor")
+comparison
+```
+
+### `plot_compare_teams()`
+
+Visualizes the comparison in a bar chart.
+
+```{r plot-example, fig.width=8, fig.height=5}
+plot_compare_teams(comparison)
+```
+
+---
+
+## Getting Bracket Teams
+
+### `get_bracket_teams()`
+
+Returns all teams that made the NCAA tournament in a given year. Teams are identified via the `POSTSEASON` column.
+
+```{r get-bracket-example}
+bracket_teams <- get_bracket_teams(2023)
+head(bracket_teams)
+```
+
+**Note**: Any `POSTSEASON` value not equal to `"0"`, `"N/A"`, or `NA` is considered bracket-eligible.
+
+---
+
+## Getting Teams by Conference
+
+### `get_teams_by_conf()`
+
+Returns a named list of conferences and the teams that belonged to each in a given year.
+
+```{r get-conf-example}
+conf_teams <- get_teams_by_conf(2018)
+names(conf_teams)      # List of conference names
+head(conf_teams$`Big Ten`)  # Teams in the Big Ten
+```
+
+---
+
+### Searching for Teams by Keyword using `search_team()`
+
+`search_team()` allows you to quickly find teams whose names contain a specific keyword. This is useful when you're working with this large dataset and want to filter down to teams of interest and available years of data.
+
+For example, we can see all teams with the keyword `utah`:
+
+```{r}
+search_team("utah", include_years = TRUE)
+```
+
+---
+
+### Simulating a Matchup Between Two Teams using `simulate_matchup()`
+
+`simulate_matchup()` allows you to simulate head-to-head matchups between two teams in a given season. This can help estimate win probabilities based on adjusted offensive, defensive, and tempo metrics.
+
+For example, here we simulate 1000 games between Utah and Baylor in the 2015 season:
+
+```{r}
+set.seed(387)
+simulate_matchup("Utah", "Baylor", 2015)
+```
+
+---
+
+### Flipping a Coin Between Two Teams using `flip_a_coin()`
+
+`flip_a_coin()` is a whimsical tool that stochastically selects a winner between two teams—essentially a virtual coin flip. It provides no analytical value but can be a fun way to break ties or help decide between picking two teams.
+
+For example, here we flip a coin between BYU and Utah:
+
+```{r, results='hold'}
+set.seed(348)
+flip_a_coin("BYU", "Utah")
+```
+
+---
+
+## Notes
+
+- These functions rely on consistent naming in the dataset: columns like `year`, `team`, `CONF`, and `POSTSEASON` must be present.
+- Use validation helpers (e.g., `validate_inputs()`, `validate_bracket_inputs()`) to ensure robust function calls.
+
+## Session Info
+
+```{r session-info}
+sessionInfo()
+```
+

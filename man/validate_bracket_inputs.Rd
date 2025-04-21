@@ -7,9 +7,9 @@
 validate_bracket_inputs(yr, data)
 }
 \arguments{
-\item{data}{The dataset to check.}
+\item{yr}{The year to check.}
 
-\item{year}{The year to check.}
+\item{data}{The dataset to check.}
 }
 \value{
 Stops with an error if invalid input is detected.

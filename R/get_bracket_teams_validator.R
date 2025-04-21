@@ -1,6 +1,6 @@
 #' Validate Inputs for get_bracket_teams
 #'
-#' @param year The year to check.
+#' @param yr The year to check.
 #' @param data The dataset to check.
 #'
 #' @return Stops with an error if invalid input is detected.

@@ -3,9 +3,6 @@
 \name{get_bracket_teams}
 \alias{get_bracket_teams}
 \title{Get NCAA Tournament Teams for a Given Year}
-\usage{
-get_bracket_teams(yr, data = cbb_data)
-}
 \arguments{
 \item{yr}{An integer year to query.}
 

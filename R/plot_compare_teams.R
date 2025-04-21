@@ -7,12 +7,16 @@
 #'     with two rows and the metrics as columns.
 #'
 #' @return A \code{ggplot} object showing the side-by-side comparison.
+#' @name plot_compare_teams
+#'
 #' @export
 #'
 #' @examples
 #' comparison <- compare_teams(2021, "Bryant", "Lamar")
-#' plot_team_comparison(comparison)
-plot_team_comparison <- function(comparison_df) {
+#' plot_compare_teams(comparison)
+
+utils::globalVariables(c("Metric", "Value"))
+plot_compare_teams <- function(comparison_df) {
   # Check input
   if (!is.data.frame(comparison_df) || nrow(comparison_df) != 2) {
     stop("Input must be a data frame with two rows from compare_teams().")

@@ -9,10 +9,14 @@
 #'
 #' @return A sorted character vector of team names that made the NCAA bracket
 #'     in the given year.
+#'
+#' @name get_bracket_teams
 #' @export
 #'
 #' @examples
 #' get_bracket_teams(2023)
+
+utils::globalVariables(c("year", "POSTSEASON"))
 get_bracket_teams <- function(yr, data = cbb_data) {
   validate_bracket_inputs(yr, data)
 

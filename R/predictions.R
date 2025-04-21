@@ -1,0 +1,67 @@
+#' Predict the Sweet Sixteen
+#'
+#' This function takes the model and predicts the Sweet 16 for a
+#' season's worth of data.
+#'
+#' @param year A given year to describe the data
+#'
+#' @return a table of teams that we predict will mmake the sweet 16
+#'
+#' @export
+predict_s16_teams <- function(year) {
+  if (year %in% unique(cbb_data$year)) {
+    season_data <- cbb_data |>
+      dplyr::filter(year == !!year) |>
+      mutate(
+        POSTSEASON =
+          ifelse(POSTSEASON %in% c("Champions", "2ND", "F4", "E8"),
+            "S16", POSTSEASON
+          ),
+        team = as.factor(team)
+      ) |>
+      mutate(
+        POSTSEASON = as.factor(ifelse(POSTSEASON != "S16", "NS16", "S16"))
+      ) |>
+      select(-c(CONF, SEED))
+
+    season_data_baked <- bake(smote_prep,
+      new_data = season_data,
+      composition = "data.frame"
+    )
+
+    season_data$probs <- predict(model, season_data_baked,
+      type = "prob"
+    )[, "S16"]
+    season_data$preds <- predict(model, season_data_baked)
+
+    predicted_s16 <- season_data %>%
+      filter(probs > 0.5) %>%
+      arrange(desc(probs)) %>%
+      select(team, probs) |>
+      head(16)
+
+    predicted_s16
+  } else {
+    season_data <- cbbdata::cbb_torvik_ratings() |>
+      dplyr::filter(year == !!year)
+
+    season_data_baked <- bake(smote_prep,
+      new_data = season_data,
+      composition = "data.frame"
+    )
+
+    season_data$probs <- predict(model,
+      season_data_baked,
+      type = "prob"
+    )[, "S16"]
+    season_data$preds <- predict(model, season_data_baked)
+
+    predicted_s16 <- season_data %>%
+      filter(probs > 0.5) %>%
+      arrange(desc(probs)) %>%
+      select(team, probs) %>%
+      head(16)
+
+    predicted_s16
+  }
+}

@@ -20,7 +20,16 @@ library(finalfourr)
 
 ## Introduction
 
-This vignette demonstrates how to use several functions from the package to 
+This vignette describes the main functionality of this package which is to 
+predict what team make it to the Sweet Sixteen for a given year of data. The original
+intent was to  predict the Final Four. However, after trail and error no model 
+was close in it's predictive power. This same iteration was done for the Elite 
+Eight. After moving on, the Sweet 16 proved to be more feasible and have a strong
+predictive capability. Though the predictions are good, this is not the only 
+functionality of this model.
+
+
+This vignette also demonstrates how to use several functions from the package to 
 explore NCAA basketball team data, including:
 
 - Comparing two teams (`compare_teams()` and `plot_compare_teams()`)
@@ -34,6 +43,19 @@ All functions assume the presence of a dataset like `cbb_data`, containing
 columns such as `year`, `team`, `CONF`, and `POSTSEASON`.
 
 ---
+## Predictions
+
+## `predict_s16_teams()`
+
+This returns a table with the teams that are predicted to make it to the sweet 
+16. For this example, I will be using the 2020 season to make a prediction as to
+what teams would have made it if their season was not ended before the tournament
+due to Covid. 
+
+```{r predictions-example}
+predict_s16_teams(2020)
+
+```
 
 ## Comparing Two Teams
 

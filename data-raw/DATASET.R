@@ -80,8 +80,9 @@ cbb_data <- season_stats |>
   dplyr::left_join(kaggle, by = c("team" = "TEAM", "year" = "YEAR")) |>
   tidyr::replace_na(list(0)) |>
   dplyr::mutate(
-    POSTSEASON = ifelse(is.na(POSTSEASON), "0", POSTSEASON),
-    SEED = ifelse(is.na(SEED), "100", SEED)
+    POSTSEASON = ifelse((is.na(POSTSEASON) | POSTSEASON == "N/A"),
+                        "0", POSTSEASON),
+    SEED = ifelse((is.na(SEED) | SEED == "N/A"), "100", SEED)
   ) |>
   dplyr::select(!c(
     G, W, "ADJDE", "BARTHAG", "EFG_O",

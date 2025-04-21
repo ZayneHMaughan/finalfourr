@@ -20,7 +20,8 @@ library(finalfourr)
 
 ## Introduction
 
-This vignette demonstrates how to use several functions from the package to explore NCAA basketball team data, including:
+This vignette demonstrates how to use several functions from the package to 
+explore NCAA basketball team data, including:
 
 - Comparing two teams (`compare_teams()` and `plot_compare_teams()`)
 - Listing bracket teams for a given year (`get_bracket_teams()`)
@@ -29,7 +30,8 @@ This vignette demonstrates how to use several functions from the package to expl
 - Simulating a matchup between two teams (`simulate_matchup()`)
 - Flipping a coin between two teams (`flip_a_coin()`)
 
-All functions assume the presence of a dataset like `cbb_data`, containing columns such as `year`, `team`, `CONF`, and `POSTSEASON`.
+All functions assume the presence of a dataset like `cbb_data`, containing 
+columns such as `year`, `team`, `CONF`, and `POSTSEASON`.
 
 ---
 
@@ -65,14 +67,16 @@ plot_compare_teams(comparison)
 
 ### `get_bracket_teams()`
 
-Returns all teams that made the NCAA tournament in a given year. Teams are identified via the `POSTSEASON` column.
+Returns all teams that made the NCAA tournament in a given year. Teams are 
+identified via the `POSTSEASON` column.
 
 ```{r get-bracket-example}
 bracket_teams <- get_bracket_teams(2023)
 head(bracket_teams)
 ```
 
-**Note**: Any `POSTSEASON` value not equal to `"0"`, `"N/A"`, or `NA` is considered bracket-eligible.
+**Note**: Any `POSTSEASON` value not equal to `"0"`, `"N/A"`, or `NA` is 
+considered bracket-eligible.
 
 ---
 
@@ -80,7 +84,8 @@ head(bracket_teams)
 
 ### `get_teams_by_conf()`
 
-Returns a named list of conferences and the teams that belonged to each in a given year.
+Returns a named list of conferences and the teams that belonged to each in a
+given year.
 
 ```{r get-conf-example}
 conf_teams <- get_teams_by_conf(2018)
@@ -92,7 +97,9 @@ head(conf_teams$`Big Ten`)  # Teams in the Big Ten
 
 ### Searching for Teams by Keyword using `search_team()`
 
-`search_team()` allows you to quickly find teams whose names contain a specific keyword. This is useful when you're working with this large dataset and want to filter down to teams of interest and available years of data.
+`search_team()` allows you to quickly find teams whose names contain a specific
+keyword. This is useful when you're working with this large dataset and want to 
+filter down to teams of interest and available years of data.
 
 For example, we can see all teams with the keyword `utah`:
 
@@ -104,9 +111,12 @@ search_team("utah", include_years = TRUE)
 
 ### Simulating a Matchup Between Two Teams using `simulate_matchup()`
 
-`simulate_matchup()` allows you to simulate head-to-head matchups between two teams in a given season. This can help estimate win probabilities based on adjusted offensive, defensive, and tempo metrics.
+`simulate_matchup()` allows you to simulate head-to-head matchups between two 
+teams in a given season. This can help estimate win probabilities based on 
+adjusted offensive, defensive, and tempo metrics.
 
-For example, here we simulate 1000 games between Utah and Baylor in the 2015 season:
+For example, here we simulate 1000 games between Utah and Baylor in the 2015 
+season:
 
 ```{r}
 set.seed(387)
@@ -117,7 +127,10 @@ simulate_matchup("Utah", "Baylor", 2015)
 
 ### Flipping a Coin Between Two Teams using `flip_a_coin()`
 
-`flip_a_coin()` is a whimsical tool that stochastically selects a winner between two teams—essentially a virtual coin flip. It provides no analytical value but can be a fun way to break ties or help decide between picking two teams.
+`flip_a_coin()` is a whimsical tool that stochastically selects a winner 
+between two teams—essentially a virtual coin flip. It provides no analytical 
+value but can be a fun way to break ties or help decide between picking two 
+teams.
 
 For example, here we flip a coin between BYU and Utah:
 
@@ -130,12 +143,65 @@ flip_a_coin("BYU", "Utah")
 
 ## Notes
 
-- These functions rely on consistent naming in the dataset: columns like `year`, `team`, `CONF`, and `POSTSEASON` must be present.
-- Use validation helpers (e.g., `validate_inputs()`, `validate_bracket_inputs()`) to ensure robust function calls.
+- These functions rely on consistent naming in the dataset: columns like `year`,
+`team`, `CONF`, and `POSTSEASON` must be present.
+- Use validation helpers 
+(e.g., `validate_inputs()`, `validate_bracket_inputs()`) to ensure robust 
+function calls.
 
 ## Session Info
 
 ```{r session-info}
 sessionInfo()
 ```
+
+---
+### Get All of the Team Stats Using `filter_team()`
+
+`filter_team()` allows you to pull of the available stats for a team during a 
+a given season. 
+
+```{r}
+filter_team('N.C. State', season = 2016)
+```
+
+## Notes
+- If season is Null filter team will return all of the teams stats for all 
+available seasons. 
+
+---
+### Plot the Power Ranking Using `power_plot()`
+
+`power_plot()` allows you to visualize how a specific college basketball team's 
+power ranking—measured by the barthag metric—has evolved over time. This plot is especially useful for identifying trends, such as periods of sustained success 
+or decline, and  comparing team trajectories across seasons. The only input to 
+the function is  the team name (as a string), and it returns a base R plot 
+showing the team's power rating from 2013 to the most recent season available 
+in the dataset.
+
+```{r}
+power_plot('Utah St.')
+```
+
+---
+Querying the Data
+This package includes a variety of functions designed to help users quickly 
+access and explore specific subsets of the dataset. These query functions allow 
+you to retrieve team-specific information, filter data by season or region, and 
+examine key performance metrics across different dimensions. Whether you're 
+interested in tracking a team's performance over time, comparing power ratings,
+or isolating records from a specific year, these functions provide a flexible 
+and user-friendly interface for working with the data. Below is a list of all 
+currently available query functions:
+
+filter_team() – Retrieve all rows for a specific team across seasons.
+
+get_team_record() - Retrieve all of a teams wins and losses across any season 
+range. 
+
+plot_power() – Visualize a team's power rating (barthag) across seasons.
+
+These tools are intended to streamline analysis and make it easy to derive 
+insights from the underlying basketball data.
+
 

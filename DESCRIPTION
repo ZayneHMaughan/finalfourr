@@ -24,6 +24,7 @@ Imports:
     reshape2,
     themis, 
     recipes, 
-    cbbdata
+    cbbdata,
+    xgboost
 VignetteBuilder: knitr
 Config/testthat/edition: 3

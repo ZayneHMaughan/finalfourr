@@ -8,6 +8,7 @@
 #' @import themis
 #' @importFrom cbbdata cbb_torvik_ratings
 #' @import stats
+#' @import xgboost
 #' @param year A given year to describe the data
 #'
 #' @return a table of teams that we predict will mmake the sweet 16

@@ -11,16 +11,19 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
 LazyData: true
+LazyDataCompression: xz
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0), 
-    caret
+    testthat (>= 3.0.0),
+    caret,
+    vdiffr
 Imports:
     dplyr,
     ggplot2,
     reshape2,
     themis, 
-    recipes
+    recipes, 
+    cbbdata
 VignetteBuilder: knitr
 Config/testthat/edition: 3

@@ -6,6 +6,7 @@
 #' @importFrom dplyr mutate select arrange desc
 #' @importFrom recipes bake
 #' @import themis
+#' @importFrom cbbdata cbb_torvik_ratings
 #' @import stats
 #' @param year A given year to describe the data
 #'

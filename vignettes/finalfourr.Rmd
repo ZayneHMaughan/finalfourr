@@ -36,7 +36,7 @@ functionality of this model.
 Installing and using the package requires running the below command to fully use
 the dataset:
 
-```{r}
+```{r, eval=FALSE}
 devtools::install_github("andreweatherman/cbbdata")
 ```
 

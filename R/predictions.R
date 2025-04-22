@@ -3,9 +3,9 @@
 #' This function takes the model and predicts the Sweet 16 for a
 #' season's worth of data.
 #' @name predict_s16_teams
-#' @import dplyr
+#' @importFrom dplyr mutate select arrange
+#' @importFrom recipes bake
 #' @import themis
-#' @import recipes
 #' @import stats
 #' @param year A given year to describe the data
 #'

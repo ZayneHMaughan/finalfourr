@@ -1,12 +1,12 @@
 #' The model created and used for predictions in this project.
 #'
 #' An XGBoost model created using parallelization under grid search. This
-#'   considers all variables within the data. However, the data under went SMOTE
-#'   transformation to train on other things.
+#' considers all variables within the data. However, the data underwent SMOTE
+#' transformation before training.
 #'
-#' @format ## 'model'
-#'   A list containing a trained model including the best tuning options,
-#'    amongst other variables.
+#' @format A trained model object, typically from the `parsnip` or `caret`
+#'   package.
 #'
-#' @source "https://themis.tidymodels.org/reference/step_smote.html"
-#' @source "https://topepo.github.io/caret/model-training-and-tuning.html"
+#' @source \url{https://themis.tidymodels.org/reference/step_smote.html}
+#' @source \url{https://topepo.github.io/caret/model-training-and-tuning.html}
+"model"

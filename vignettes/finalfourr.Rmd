@@ -194,14 +194,6 @@ flip_a_coin("BYU", "Utah")
 (e.g., `validate_inputs()`, `validate_bracket_inputs()`) to ensure robust 
 function calls.
 
-## Session Info
-
-```{r session-info}
-sessionInfo()
-```
-
----
-
 ### Get All of the Team Stats Using `filter_team()`
 
 `filter_team()` allows you to pull of the available stats for a team during a 
@@ -210,6 +202,8 @@ a given season.
 ```{r}
 filter_team("N.C. State", season = 2016)
 ```
+This returns a tibble of all available information for North Carolina State
+University in 2016.
 
 ## Notes
 - If season is Null filter team will return all of the teams stats for all 
@@ -229,3 +223,7 @@ in the dataset.
 ```{r ,fig.width=8, fig.height=5}
 plot_power("Utah St.")
 ```
+This plot displays Utah State having a very low power ranking from the year 
+2013 and decreasing to their worst power ranking in 2018. The team then sky 
+rockets to a power ranking of about 0.83 in 2019 and have maintained a high 
+ranking since that time. 

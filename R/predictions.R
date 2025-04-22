@@ -6,7 +6,6 @@
 #' @importFrom dplyr mutate select arrange desc
 #' @importFrom recipes bake
 #' @import themis
-#' @importFrom cbbdata cbb_torvik_ratings
 #' @import stats
 #' @import xgboost
 #' @param year A given year to describe the data
@@ -52,7 +51,7 @@ predict_s16_teams <- function(year) {
 
     predicted_s16
   } else {
-    season_data <- cbbdata::cbb_torvik_ratings() |>
+    season_data <- cbbdata:::cbb_torvik_ratings() |>
       dplyr::filter(year == !!year)
 
     season_data_baked <- bake(smote_prep,

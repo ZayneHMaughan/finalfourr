@@ -31,13 +31,14 @@ Eight. After moving on, the Sweet 16 proved to be more feasible and have a stron
 predictive capability. Though the predictions are good, this is not the only 
 functionality of this model.
 
-## IMPORTANT:
+## Installation Instructions:
 
-Installing and using the package requires running the below command to fully use
-the dataset:
+In order to install the finalfourr package you must first install the cbbdata
+package then install finalfourr:
 
 ```{r, eval=FALSE}
 devtools::install_github("andreweatherman/cbbdata")
+devtools::install_github("ZayneHMaughan/cbbdata")
 ```
 
 ---
@@ -47,7 +48,7 @@ devtools::install_github("andreweatherman/cbbdata")
 ### `predict_s16_teams()`
 
 This returns a table with the teams that are predicted to make it to the sweet 
-16. For this example, I will be using the 2020 season to make a prediction as to
+16. For this example, we will be using the 2020 season to make a prediction as to
 what teams would have made it if their season was not ended before the tournament
 due to Covid. 
 
@@ -211,7 +212,7 @@ available seasons.
 
 ### Plot the Power Ranking Using `power_plot()`
 
-`power_plot()` allows you to visualize how a specific college basketball team's 
+`plot_power()` allows you to visualize how a specific college basketball team's 
 power ranking—measured by the barthag metric—has evolved over time. This plot is especially useful for identifying trends, such as periods of sustained success 
 or decline, and  comparing team trajectories across seasons. The only input to 
 the function is  the team name (as a string), and it returns a base R plot 

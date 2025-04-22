@@ -31,6 +31,15 @@ Eight. After moving on, the Sweet 16 proved to be more feasible and have a stron
 predictive capability. Though the predictions are good, this is not the only 
 functionality of this model.
 
+## IMPORTANT:
+
+Installing and using the package requires running the below command to fully use
+the dataset:
+
+```{r}
+devtools::install_github("andreweatherman/cbbdata")
+```
+
 ---
 
 ## Predicting Sweet 16

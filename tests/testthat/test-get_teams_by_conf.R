@@ -22,8 +22,10 @@ test_that("get_teams_by_conf throws error when year not in dataset", {
     stringsAsFactors = FALSE
   )
 
-  expect_error(get_teams_by_conf(2022, data = mock_data),
-               "The specified year is not in the dataset")
+  expect_error(
+    get_teams_by_conf(2022, data = mock_data),
+    "The specified year is not in the dataset"
+  )
 })
 
 test_that("get_teams_by_conf throws error if required columns are missing", {

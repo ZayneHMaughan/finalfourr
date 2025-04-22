@@ -14,8 +14,10 @@ test_that("search_team returns correct teams", {
 
   expected_2 <- dplyr::tibble(
     team = "Utah St.",
-    years = paste0("2013, 2014, 2015, 2016, 2017, 2018, ",
-                   "2019, 2020, 2021, 2022, 2023, 2024")
+    years = paste0(
+      "2013, 2014, 2015, 2016, 2017, 2018, ",
+      "2019, 2020, 2021, 2022, 2023, 2024"
+    )
   )
 
   result_2 <- search_team("Utah St.")
@@ -24,21 +26,33 @@ test_that("search_team returns correct teams", {
 })
 
 test_that("search_team errors for invalid keyword input", {
-  expect_error(search_team(NULL),
-               "`keyword` must be a non-empty character string.")
-  expect_error(search_team(123),
-               "`keyword` must be a non-empty character string.")
-  expect_error(search_team(c("Utah", "Texas")),
-               "`keyword` must be a non-empty character string.")
-  expect_error(search_team(""),
-               "`keyword` must be a non-empty character string.")
+  expect_error(
+    search_team(NULL),
+    "`keyword` must be a non-empty character string."
+  )
+  expect_error(
+    search_team(123),
+    "`keyword` must be a non-empty character string."
+  )
+  expect_error(
+    search_team(c("Utah", "Texas")),
+    "`keyword` must be a non-empty character string."
+  )
+  expect_error(
+    search_team(""),
+    "`keyword` must be a non-empty character string."
+  )
 })
 
 test_that("search_team errors for invalid include_years input", {
-  expect_error(search_team("Utah", include_years = "yes"),
-               "`include_years` must be a single logical value")
-  expect_error(search_team("Utah", include_years = c(TRUE, FALSE)),
-               "`include_years` must be a single logical value")
+  expect_error(
+    search_team("Utah", include_years = "yes"),
+    "`include_years` must be a single logical value"
+  )
+  expect_error(
+    search_team("Utah", include_years = c(TRUE, FALSE)),
+    "`include_years` must be a single logical value"
+  )
 })
 
 test_that("search_team handles no matches", {

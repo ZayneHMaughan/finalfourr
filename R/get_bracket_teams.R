@@ -15,7 +15,6 @@
 #'
 #' @examples
 #' get_bracket_teams(2023)
-
 utils::globalVariables(c("year", "POSTSEASON"))
 get_bracket_teams <- function(yr, data = cbb_data) {
   validate_bracket_inputs(yr, data)

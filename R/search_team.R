@@ -47,7 +47,8 @@ search_team <- function(keyword, include_years = TRUE) {
     result <- result |>
       dplyr::group_by(team) |>
       dplyr::summarise(years = paste(sort(unique(year)),
-                                     collapse = ", ")) |>
+        collapse = ", "
+      )) |>
       dplyr::arrange(team)
   } else {
     result <- result |>

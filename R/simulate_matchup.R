@@ -1,5 +1,7 @@
-utils::globalVariables(c("team", "year", "adj_o.x", "adj_d.x",
-                         "adj_t", "cbb_data"))
+utils::globalVariables(c(
+  "team", "year", "adj_o.x", "adj_d.x",
+  "adj_t", "cbb_data"
+))
 #' Simulate a Matchup Between Two Teams
 #'
 #' Simulates `n_sim` games between two teams for a given year using adjusted

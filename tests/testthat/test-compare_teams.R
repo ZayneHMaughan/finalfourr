@@ -17,8 +17,10 @@ test_that("compare_teams returns expected structure and values", {
   # Check return type and dimensions
   expect_s3_class(result, "data.frame")
   expect_equal(nrow(result), 2)
-  expect_named(result, c("team", "ftr", "two_pt_pct", "three_pt_pct",
-                         "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct"))
+  expect_named(result, c(
+    "team", "ftr", "two_pt_pct", "three_pt_pct",
+    "def_ftr.y", "def_two_pt_pct", "def_three_pt_pct"
+  ))
 
   # Check that the order of teams is respected
   expect_equal(result$team[1], "Team A")

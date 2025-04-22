@@ -14,7 +14,6 @@
 #' @examples
 #' comparison <- compare_teams(2021, "Bryant", "Lamar")
 #' plot_compare_teams(comparison)
-
 utils::globalVariables(c("Metric", "Value"))
 plot_compare_teams <- function(comparison_df) {
   # Check input

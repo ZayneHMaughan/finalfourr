@@ -39,8 +39,10 @@ flip_a_coin <- function(team1, team2) {
     total <- 20
     bar_length <- 20
     done <- round((i / total) * bar_length)
-    bar <- paste0(paste(rep("=", done), collapse = ""),
-                  paste(rep("-", bar_length - done), collapse = ""))
+    bar <- paste0(
+      paste(rep("=", done), collapse = ""),
+      paste(rep("-", bar_length - done), collapse = "")
+    )
     cat(sprintf("\r[%s] %3d%%", bar, round(i / total * 100)))
   }
   cat(paste0("\n", "The Winner is ", winner))

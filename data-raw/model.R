@@ -8,7 +8,8 @@ data <- cbb_data |>
   mutate(
     POSTSEASON =
       ifelse(POSTSEASON %in% c("Champions", "2ND", "F4", "E8"),
-             "S16", POSTSEASON),
+        "S16", POSTSEASON
+      ),
     team = as.factor(team)
   ) |>
   mutate(POSTSEASON = as.factor(ifelse(POSTSEASON != "S16", "NS16", "S16"))) |>
@@ -43,7 +44,7 @@ smote_test <- bake(smote_prep, new_data = test_data)
 library(doParallel)
 
 # Detect number of cores and create cluster
-cl <- makeCluster(parallel::detectCores() - 1)  # Leave 1 core free
+cl <- makeCluster(parallel::detectCores() - 1) # Leave 1 core free
 registerDoParallel(cl)
 
 xgb_grid <- expand.grid(

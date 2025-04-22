@@ -38,7 +38,14 @@ package then install finalfourr:
 
 ```{r, eval=FALSE}
 devtools::install_github("andreweatherman/cbbdata")
-devtools::install_github("ZayneHMaughan/cbbdata")
+devtools::install_github("ZayneHMaughan/finalfourr")
+```
+
+Secondly, you need an API key to query data from the cbbdata package. 
+```{r, eval=FALSE}
+
+cbbdata::cbd_create_account(username, email, password, confirm_password)
+
 ```
 
 ---

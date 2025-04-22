@@ -1,5 +1,5 @@
 ---
-title: "test"
+title: "Finalfourr Vignette"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{test}
@@ -17,6 +17,9 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(finalfourr)
 ```
+
+Package can be found at [https://github.com/ZayneHMaughan/finalfourr](https://github.com/ZayneHMaughan/finalfourr)
+
 
 # Introduction
 
@@ -114,8 +117,8 @@ given year.
 
 ```{r get-conf-example}
 conf_teams <- get_teams_by_conf(2018)
-names(conf_teams)      # List of conference names
-head(conf_teams$`Big Ten`)  # Teams in the Big Ten
+names(conf_teams) # List of conference names
+head(conf_teams$`Big Ten`) # Teams in the Big Ten
 ```
 
 ---
@@ -206,29 +209,6 @@ the function is  the team name (as a string), and it returns a base R plot
 showing the team's power rating from 2013 to the most recent season available 
 in the dataset.
 
-```{r}
+```{r ,fig.width=8, fig.height=5}
 plot_power("Utah St.")
 ```
-
----
-
-Querying the Data
-This package includes a variety of functions designed to help users quickly 
-access and explore specific subsets of the dataset. These query functions allow 
-you to retrieve team-specific information, filter data by season or region, and 
-examine key performance metrics across different dimensions. Whether you're 
-interested in tracking a team's performance over time, comparing power ratings,
-or isolating records from a specific year, these functions provide a flexible 
-and user-friendly interface for working with the data. Below is a list of all 
-currently available query functions:
-
-filter_team() – Retrieve all rows for a specific team across seasons.
-
-get_team_record() - Retrieve all of a teams wins and losses across any season 
-range. 
-
-plot_power() – Visualize a team's power rating (barthag) across seasons.
-
-These tools are intended to streamline analysis and make it easy to derive 
-insights from the underlying basketball data.
-

@@ -53,7 +53,8 @@ predict_s16_teams <- function(year) {
 
     predicted_s16
   } else {
-    season_data <- cbbdata::cbd_torvik_ratings() |>
+    season_data <- cbbdata::cbd_torvik_team_split(split = 'game_type') |>
+      dplyr::filter(type != 'post')
       dplyr::filter(year == !!year)
 
     season_data_baked <- bake(smote_prep,

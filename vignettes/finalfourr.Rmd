@@ -55,14 +55,36 @@ cbbdata::cbd_create_account(username, email, password, confirm_password)
 ### `predict_s16_teams()`
 
 This returns a table with the teams that are predicted to make it to the sweet 
-16. For this example, we will be using the 2020 season to make a prediction as to
+16. To make the predictions we created a predictive model based on seasonal 
+statistics for years 2008 - present. We are training on years 2008 - 2023. We 
+used all variables except for the number of games played, the number of wins, 
+the number of losses, and the number of game minutes. There were a bunch of
+variables that are included in the model so we will attach a the variable 
+importance of this model. This model is a XGBoosted tree model that is a binary 
+classifier. The response of this model is simply an indicator of whether or not 
+a team made it to the Sweet 16. A challenge that comes from this is that because 
+there are over 300 teams in division one men's basketball, having only sixteen 
+in the desired class creates imbalanced classes. To combat this SMOTE was done 
+on the data to try and achieve greater class balance. The goal is to predict on
+a year's data so it is a deterministic model. The probabilities given by a 
+prediction come from this model's prediction on it's confidence they would make
+it to the sweet sixteen.
+
+For this example, we will be using the 2020 season to make a prediction as to
 what teams would have made it if their season was not ended before the tournament
-due to Covid. 
+due to Covid.
 
 ```{r predictions-example}
 predict_s16_teams(2020)
 ```
+This output shows the predicted 16 teams that our model determines who would 
+have made it to the Sweet 16 for the 2020 season.
 
+Because there were around 80 variables that were trained on, the variables most
+important to the prediction are as follows:
+```{r variable-importance}
+caret::varImp(model)
+```
 
 This vignette also demonstrates how to use several functions from the package to 
 explore NCAA basketball team data, including:

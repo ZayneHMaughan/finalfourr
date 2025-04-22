@@ -6,12 +6,15 @@
 #' @import dplyr
 #' @import themis
 #' @import recipes
-#'
+#' @import stats
 #' @param year A given year to describe the data
 #'
 #' @return a table of teams that we predict will mmake the sweet 16
 #'
 #' @export
+utils::globalVariables(c("CONF", "SEED", "smote_prep", "model", "probs",
+                         "cbb_data", "POSTSEASON"))
+
 predict_s16_teams <- function(year) {
   if (year %in% unique(cbb_data$year)) {
     season_data <- cbb_data |>
@@ -38,10 +41,10 @@ predict_s16_teams <- function(year) {
     )[, "S16"]
     season_data$preds <- predict(model, season_data_baked)
 
-    predicted_s16 <- season_data %>%
-      dplyr::filter(probs > 0.5) %>%
-      dplyr::arrange(desc(probs)) %>%
-      dplyr::select(team, probs) %>%
+    predicted_s16 <- season_data |>
+      dplyr::filter(probs > 0.5) |>
+      dplyr::arrange(desc(probs)) |>
+      dplyr::select(team, probs) |>
       head(16)
 
     predicted_s16
@@ -58,6 +61,7 @@ predict_s16_teams <- function(year) {
       season_data_baked,
       type = "prob"
     )[, "S16"]
+
     season_data$preds <- predict(model, season_data_baked)
 
     predicted_s16 <- season_data %>%

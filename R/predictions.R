@@ -3,7 +3,7 @@
 #' This function takes the model and predicts the Sweet 16 for a
 #' season's worth of data.
 #' @name predict_s16_teams
-#' @importFrom dplyr mutate select arrange
+#' @importFrom dplyr mutate select arrange desc
 #' @importFrom recipes bake
 #' @import themis
 #' @import stats
@@ -65,10 +65,10 @@ predict_s16_teams <- function(year) {
 
     season_data$preds <- predict(model, season_data_baked)
 
-    predicted_s16 <- season_data %>%
-      dplyr::filter(probs > 0.5) %>%
-      dplyr::arrange(desc(probs)) %>%
-      dplyr::select(team, probs) %>%
+    predicted_s16 <- season_data |>
+      dplyr::filter(probs > 0.5) |>
+      dplyr::arrange(desc(probs)) |>
+      dplyr::select(team, probs) |>
       head(16)
 
     predicted_s16

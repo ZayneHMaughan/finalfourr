@@ -14,7 +14,7 @@
 #' @export
 
 utils::globalVariables(c("CONF", "SEED", "smote_prep", "model", "probs",
-                         "cbb_data", "POSTSEASON"))
+                         "cbb_data", "POSTSEASON", "head"))
 
 predict_s16_teams <- function(year) {
   if (year %in% unique(cbb_data$year)) {

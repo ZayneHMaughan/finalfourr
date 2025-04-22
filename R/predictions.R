@@ -2,7 +2,7 @@
 #'
 #' This function takes the model and predicts the Sweet 16 for a
 #' season's worth of data.
-#'
+#' @name predict_s16_teams
 #' @import dplyr
 #' @import themis
 #' @import recipes
@@ -12,6 +12,7 @@
 #' @return a table of teams that we predict will mmake the sweet 16
 #'
 #' @export
+
 utils::globalVariables(c("CONF", "SEED", "smote_prep", "model", "probs",
                          "cbb_data", "POSTSEASON"))
 

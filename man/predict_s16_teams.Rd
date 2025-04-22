@@ -3,9 +3,6 @@
 \name{predict_s16_teams}
 \alias{predict_s16_teams}
 \title{Predict the Sweet Sixteen}
-\usage{
-predict_s16_teams(year)
-}
 \arguments{
 \item{year}{A given year to describe the data}
 }

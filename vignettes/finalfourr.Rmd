@@ -41,7 +41,6 @@ due to Covid.
 
 ```{r predictions-example}
 predict_s16_teams(2020)
-
 ```
 
 

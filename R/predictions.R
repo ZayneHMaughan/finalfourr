@@ -16,7 +16,7 @@
 
 utils::globalVariables(c(
   "CONF", "SEED", "smote_prep", "model", "probs",
-  "cbb_data", "POSTSEASON", "head"
+  "cbb_data", "POSTSEASON", "head", "type"
 ))
 
 predict_s16_teams <- function(year) {

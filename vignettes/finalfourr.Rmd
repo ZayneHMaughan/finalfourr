@@ -178,9 +178,28 @@ search_team("utah", include_years = TRUE)
 
 ### Simulating a Matchup Between Two Teams using `simulate_matchup()`
 
-`simulate_matchup()` allows you to simulate head-to-head matchups between two 
-teams in a given season. This can help estimate win probabilities based on 
-adjusted offensive, defensive, and tempo metrics.
+`simulate_matchup()` allows you to simulate head-to-head matchups 
+between two NCAA basketball teams for a given season. This simulation is based 
+on KenPom-style metrics, including each team's adjusted offensive and 
+defensive efficiency, tempo, and additional stats that reflect shooting and 
+ball control (like effective field goal percentage and turnover rate).
+
+Unlike deterministic models, this function uses a probabilistic Monte Carlo 
+approach, running a large number of simulated games (e.g., 1,000) to estimate 
+win probabilities. In each simulation, team scores are generated using a 
+normal distribution, where the mean is based on expected points 
+(from offensive and defensive ratings), and the standard deviation reflects 
+team consistency (based on shooting and turnover metrics). After generating 
+scores for both teams in a simulated game, the model simply compares the two 
+scores and awards the win to the team with the higher score. This process is 
+repeated across many simulations, and the team that wins the majority of 
+games is considered the predicted winner.
+
+This approach introduces randomness to mimic the natural variability 
+in real games, allowing for more realistic and nuanced predictions. This tool 
+is particularly useful for comparing teams across conferences, evaluating 
+tournament matchups, or simply exploring “what if” scenarios with 
+statistical rigor.
 
 For example, here we simulate 1000 games between Utah and Baylor in the 2015 
 season:

@@ -25,13 +25,35 @@ including:
 }
 }
 \description{
-Simulates \code{n_sim} games between two teams for a given year using adjusted
-offensive and defensive metrics, estimating win probabilities and declaring
-a predicted winner based on simulation results.
+Simulates \code{n_sim} games between two NCAA basketball teams for a given year
+using adjusted offensive and defensive metrics from KenPom-style data. This
+function estimates each team's scoring potential and variability, runs a
+Monte Carlo simulation of multiple games, and returns estimated win
+probabilities along with a predicted winner.
 }
 \details{
-The simulation uses a basic normal distribution model to estimate scores
-per game and calculates which team wins each simulated matchup.
+For each simulated game, the model:
+\enumerate{
+\item Estimates the expected number of possessions by averaging
+both teams' tempo.
+\item Calculates each team’s expected score using their offensive
+efficiency and the opponent’s defensive efficiency.
+\item Uses a custom standard deviation function (\code{calc_sd()})
+to introduce score variability based on a team's efficiency
+and turnover rate.
+\item Draws scores for each team from a normal distribution based
+on the calculated mean (expected score) and
+standard deviation (team's efficiency).
+\item Compares scores to determine the winner of each simulation.
+}
+
+This model is \strong{stochastic}, not deterministic. Because scores are drawn
+from a random distribution, the simulation includes variability and
+uncertainty — the same input may yield slightly different win
+probabilities each time it's run.
+
+The final prediction is based on which team wins the majority
+of the simulated games.
 The function also relies on \code{validate_compare_inputs()}to ensure teams and
 year are valid before simulating.
 }
@@ -40,7 +62,7 @@ set.seed(387)
 # Simulate 1000 games between Utah and Baylor in 2015
 simulate_matchup("Utah", "Baylor", 2015)
 
-# Simulate only 100 games
-simulate_matchup("Utah", "Baylor", 2022, n_sim = 100)
+# Simulate only 500 games
+simulate_matchup("Utah", "BYU", 2013, n_sim = 500)
 
 }

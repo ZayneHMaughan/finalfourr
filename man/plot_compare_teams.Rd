@@ -5,16 +5,24 @@
 \title{Plot Comparison Between Two Teams}
 \arguments{
 \item{comparison_df}{A data frame returned by \code{compare_teams()},
-with two rows and the metrics as columns.}
+containing two rows (one for each team) and the metrics as columns.}
 }
 \value{
 A \code{ggplot} object showing the side-by-side comparison.
+
+A \code{ggplot} object showing the comparison as connected lines
+across metrics.
 }
 \description{
 This function takes the result of \code{compare_teams()} and creates a bar
 plot comparing #' two teams on selected offensive and defensive metrics.
+
+This function takes the result of \code{compare_teams()} and creates a line
+plot comparing two teams across selected offensive and defensive metrics.
 }
 \examples{
 comparison <- compare_teams(2021, "Bryant", "Lamar")
 plot_compare_teams(comparison)
+comparison <- compare_teams(2021, "Bryant", "Lamar")
+plot_compare_teams_line(comparison)
 }

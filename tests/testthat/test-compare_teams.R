@@ -148,6 +148,8 @@ test_that("plot_compare_teams_line plots match expected visual output", {
 
   plots <- plot_compare_teams_line(comparison_df)
 
-  vdiffr::expect_doppelganger("Line plot - More is Better", plots$more_is_better)
-  vdiffr::expect_doppelganger("Line plot - Less is Better", plots$less_is_better)
+  vdiffr::expect_doppelganger("Line plot - More is Better",
+                              plots$more_is_better)
+  vdiffr::expect_doppelganger("Line plot - Less is Better",
+                              plots$less_is_better)
 })

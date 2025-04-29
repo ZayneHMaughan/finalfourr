@@ -38,18 +38,22 @@ plot_compare_teams_line <- function(comparison_df) {
   df_more <- long_df[long_df$Metric %in% metrics_more, ]
   df_less <- long_df[long_df$Metric %in% metrics_less, ]
 
-  p_more <- ggplot2::ggplot(df_more, ggplot2::aes(x = Metric, y = Value, group = team, color = team)) +
+  p_more <- ggplot2::ggplot(df_more, ggplot2::aes(x = Metric, y = Value, group
+                                                  = team, color = team)) +
     ggplot2::geom_line(size = 1.2) +
     ggplot2::geom_point(size = 3) +
-    ggplot2::labs(title = "Team Comparison (More is Better)", x = "Metric", y = "Value") +
+    ggplot2::labs(title = "Team Comparison (More is Better)", x = "Metric", y
+                  = "Value") +
     ggplot2::theme_minimal() +
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)) +
     ggplot2::scale_color_brewer(palette = "Set1")
 
-  p_less <- ggplot2::ggplot(df_less, ggplot2::aes(x = Metric, y = Value, group = team, color = team)) +
+  p_less <- ggplot2::ggplot(df_less, ggplot2::aes(x = Metric, y = Value, group
+                                                  = team, color = team)) +
     ggplot2::geom_line(size = 1.2) +
     ggplot2::geom_point(size = 3) +
-    ggplot2::labs(title = "Team Comparison (Less is Better)", x = "Metric", y = "Value") +
+    ggplot2::labs(title = "Team Comparison (Less is Better)", x = "Metric", y
+                  = "Value") +
     ggplot2::theme_minimal() +
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)) +
     ggplot2::scale_color_brewer(palette = "Set1")

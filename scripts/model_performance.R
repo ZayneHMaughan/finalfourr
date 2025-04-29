@@ -54,15 +54,16 @@ season_2020_baked <- bake(smote_prep, new_data = season_2020,
                           composition = "data.frame")
 
 
-preds_2020 <- predict(rf_model, season_2020_baked)
+preds_2020 <- predict(model, season_2020_baked)
 
-season_2020$probs <- predict(rf_model, season_2020_baked,
+season_2020$probs <- predict(model, season_2020_baked,
                              type = "prob")[, "S16"]
-season_2020$preds <- predict(rf_model, season_2020_baked)
+season_2020$preds <- predict(model, season_2020_baked)
 
 predicted_s16_2020 <- season_2020 %>%
-  filter(probs > 0.1) %>%
+  #filter(probs > 0.1) %>%
   arrange(desc(probs)) %>%
-  select(team, probs)
+  select(team, probs) %>%
+  head(n=16)
 
 print(predicted_s16_2020)

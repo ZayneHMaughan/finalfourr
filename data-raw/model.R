@@ -27,7 +27,7 @@ test_data <- data |>
 ######################## SMOTE FOR THE DATA AND THE MODEL ######################
 smote_recipe <- recipe(POSTSEASON ~ ., data = train_data) |>
   update_role(team, new_role = "id") |>
-  step_rm(games.y, games.x, wins, losses, min) |>
+  step_rm(games.y, games.x, wins, losses, min, year) |>
   step_smote(POSTSEASON)
 
 # Prep only once on training data

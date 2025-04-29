@@ -157,7 +157,7 @@ given year.
 ```{r get-conf-example}
 conf_teams <- get_teams_by_conf(2018)
 names(conf_teams) # List of conference names
-head(conf_teams$`Big Ten`) # Teams in the Big Ten
+head(conf_teams$`B10`) # Teams in the Big Ten
 ```
 
 ---

@@ -18,38 +18,95 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of finalfourr is to ...
+The goal of finalfourr is to provide an accessible and powerful framework for 
+analyzing NCAA men's basketball, with a primary focus on predicting 
+Sweet Sixteen teams and supporting deeper insights through simulation, 
+comparison, and visualization tools.
 
-## Installation
-
-You can install the development version of finalfourr from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("pak")
-pak::pak("ZayneHMaughan/finalfourr")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example, eval=FALSE}
+```{r setup, include=FALSE}
 library(finalfourr)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Installation Instructions:
 
-```{r cars}
-summary(cars)
+In order to install the finalfourr package you must first install the cbbdata
+package then install finalfourr:
+
+```{r, eval=FALSE}
+devtools::install_github("andreweatherman/cbbdata")
+devtools::install_github("ZayneHMaughan/finalfourr")
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+Secondly, you need an API key to query data from the cbbdata package. 
+```{r, eval=FALSE}
 
-You can also embed plots, for example:
+cbbdata::cbd_create_account(username, email, password, confirm_password)
 
-```{r pressure, echo = FALSE}
-plot(pressure)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+## Core Functionality 
+
+`predict_s16_teams(year)`
+
+Predicts which teams would make the Sweet Sixteen using an XGBoost model trained on season statistics from 2008–2023.
+
+* Uses SMOTE to address class imbalance.
+
+* Returns a ranked list of 16 predicted teams.
+
+* Example:
+
+```{r predictions-example}
+predict_s16_teams(2020)
+```
+
+## Data Exploration Tools
+
+### Search Teams by Keyword
+```{r}
+search_team("utah", include_years = TRUE)
+```
+
+### Compare Two Teams
+```{r compare-example}
+comparison <- compare_teams(2021, "Gonzaga", "Baylor")
+comparison
+```
+```{r plot-example, fig.width=8, fig.height=5}
+plot_compare_teams(comparison)
+```
+
+### Get Teams by Conference
+```{r}
+conf_teams <- get_teams_by_conf(2018)
+names(conf_teams) # List of conference names
+head(conf_teams$`B10`) # Teams in the Big Ten
+```
+
+## Simulations and Utilities
+
+### Simulate Matchup
+```{r}
+set.seed(385)
+simulate_matchup("Utah", "Baylor", 2015)
+```
+
+### Filter Team Stats
+
+```{r}
+filter_team("N.C. State", season = 2016)
+```
+
+
+## Conclusion
+
+The finalfourr package enables analysts, data scientists, and fans to:
+
+* Predict NCAA tournament outcomes.
+
+* Explore team performance trends.
+
+* Simulate realistic game scenarios.
+
+It offers both rigorous modeling and exploratory tools to deepen your understanding of NCAA men’s basketball.
+

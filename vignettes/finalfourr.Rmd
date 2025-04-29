@@ -268,3 +268,24 @@ This plot displays Utah State having a very low power ranking from the year
 2013 and decreasing to their worst power ranking in 2018. The team then sky 
 rockets to a power ranking of about 0.83 in 2019 and have maintained a high 
 ranking since that time. 
+
+## Conclusion
+
+The finalfourr package offers a comprehensive toolkit for exploring and 
+modeling NCAA men's basketball performance, with a central focus on predicting 
+which teams are likely to reach the Sweet Sixteen. Our 
+predict_s16_teams() function leverages an XGBoost binary 
+classifier, trained on historical season statistics and enhanced with class 
+balancing techniques like SMOTE, to deliver data-driven predictions 
+with strong performance.
+
+Beyond prediction, finalfourr provides several utility functions for 
+simulating matchups, comparing teams, and retrieving tournament and 
+conference-specific data. Tools like simulate_matchup() utilize Monte 
+Carlo methods to account for natural game randomness, while functions 
+like compare_teams() and plot_power() support exploratory data analysis 
+and visual storytelling.
+
+Overall, this package is a valuable resource for analysts, 
+sports fans, and data scientists interested in NCAA basketball modeling, 
+enabling both rigorous analysis and casual exploration.

@@ -51,7 +51,7 @@ plot_compare_teams <- function(comparison_df) {
 #'
 #' @return A \code{ggplot} object showing the comparison as connected lines
 #' across metrics.
-#' @name plot_compare_teams
+#' @name plot_compare_teams_line
 #' @export
 #'
 #' @examples

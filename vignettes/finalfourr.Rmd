@@ -138,6 +138,14 @@ Visualizes the comparison in a bar chart.
 plot_compare_teams(comparison)
 ```
 
+### `plot_compare_teams_line()`
+
+Visualizes the comparison in two line charts.
+
+```{r plot-example2, fig.width=8, fig.height=5}
+plot_compare_teams_line(comparison)
+```
+
 ---
 
 ## Getting Bracket Teams

@@ -106,9 +106,10 @@ test_that("plot_compare_teams plot matches expected output", {
   vdiffr::expect_doppelganger("Basic team comparison plot", p)
 })
 
-# Visual test (if using vdiffr for snapshot testing)
-test_that("plot_compare_teams_line plot matches expected output", {
-  skip_if_not_installed("vdiffr")
+# Visual test
+test_that("plot_compare_teams_line returns two ggplot objects", {
+  skip_if_not_installed("ggplot2")
+  skip_if_not_installed("reshape2")
 
   comparison_df <- data.frame(
     team = c("Team A", "Team B"),
@@ -121,7 +122,32 @@ test_that("plot_compare_teams_line plot matches expected output", {
     stringsAsFactors = FALSE
   )
 
-  p_line <- plot_compare_teams_line(comparison_df)
+  plots <- plot_compare_teams_line(comparison_df)
 
-  vdiffr::expect_doppelganger("Basic team comparison line plot", p_line)
+  expect_type(plots, "list")
+  expect_named(plots, c("more_is_better", "less_is_better"))
+  expect_s3_class(plots$more_is_better, "ggplot")
+  expect_s3_class(plots$less_is_better, "ggplot")
+})
+
+test_that("plot_compare_teams_line plots match expected visual output", {
+  skip_if_not_installed("vdiffr")
+  skip_if_not_installed("ggplot2")
+  skip_if_not_installed("reshape2")
+
+  comparison_df <- data.frame(
+    team = c("Team A", "Team B"),
+    ftr = c(0.25, 0.30),
+    two_pt_pct = c(0.52, 0.48),
+    three_pt_pct = c(0.38, 0.35),
+    def_ftr.y = c(0.20, 0.22),
+    def_two_pt_pct = c(0.45, 0.47),
+    def_three_pt_pct = c(0.32, 0.34),
+    stringsAsFactors = FALSE
+  )
+
+  plots <- plot_compare_teams_line(comparison_df)
+
+  vdiffr::expect_doppelganger("Line plot - More is Better", plots$more_is_better)
+  vdiffr::expect_doppelganger("Line plot - Less is Better", plots$less_is_better)
 })

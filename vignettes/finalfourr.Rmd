@@ -23,13 +23,23 @@ Package can be found at [https://github.com/ZayneHMaughan/finalfourr](https://gi
 
 # Introduction
 
-This vignette describes the main functionality of this package which is to 
-predict what team make it to the Sweet Sixteen for a given year of data. The original
-intent was to  predict the Final Four. However, after trail and error no model 
-was close in it's predictive power. This same iteration was done for the Elite 
-Eight. After moving on, the Sweet 16 proved to be more feasible and have a strong
-predictive capability. Though the predictions are good, this is not the only 
-functionality of this model.
+Every spring, NCAA Division I men’s college basketball teams compete in a single-elimination tournament known as March Madness. The tournament features 68 teams, selected based on regular season performance and conference championships. These teams are seeded into four regions, and through a series of rounds—First Four, First Round (Round of 64), Second Round (Round of 32)—they compete to advance to later stages:
+
+* Sweet Sixteen (final 16 teams)
+
+* Elite Eight (final 8)
+
+* Final Four (final 4)
+
+* National Championship
+
+The Sweet Sixteen represents a key milestone in the tournament. Teams that make it this far have already won two games and are often considered among the strongest performers of the season.
+
+The goal of the finalfourr package is to predict which teams will reach the Sweet Sixteen based on seasonal team statistics. While the original intent of the model was to predict the Final Four or even the national champion, these outcomes proved to be too variable and difficult to model accurately. Through trial and error, we found that predicting Sweet Sixteen teams is a more feasible and reliable problem. This stage balances the unpredictability of early upsets with the signal of sustained team performance, making it a strong target for statistical modeling.
+
+Although Sweet Sixteen prediction is the central focus, the package also includes functions for simulating matchups, comparing team stats, and exploring historical NCAA data.
+
+
 
 ## Installation Instructions:
 

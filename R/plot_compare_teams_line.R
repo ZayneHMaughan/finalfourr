@@ -58,5 +58,5 @@ plot_compare_teams_line <- function(comparison_df) {
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)) +
     ggplot2::scale_color_brewer(palette = "Set1")
 
-  return(list(more_is_better = p_more, less_is_better = p_less))
+  list(more_is_better = p_more, less_is_better = p_less)
 }

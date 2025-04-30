@@ -54,6 +54,8 @@ utils::globalVariables(c("team", "year", "adj_o.x", "adj_d.x",
 #' simulate_matchup("Utah", "BYU", 2013, n_sim = 500)
 #'
 #' @export
+utils::globalVariables(c("pts", "efg", "tov_rate"))
+
 simulate_matchup <- function(team1, team2, input_year,
                              n_sim = 1000) {
   # validate inputs
@@ -164,5 +166,5 @@ calc_sd <- function(pts, efg, tov_rate) {
   inconsistency_penalty <- (1 - efg) * 10 + tov_rate * 8
   final_sd <- base_sd + inconsistency_penalty
   # Clamp between 3 and 15 to avoid extreme values
-  return(max(3, min(final_sd, 15)))
+  max(3, min(final_sd, 15))
 }
